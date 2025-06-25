@@ -1,6 +1,7 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Transform Your Finances',
-    subheading: 'Your journey to financial freedom starts here. Download Finwise today and take the first step towards a brighter financial future!',
-    appStoreUrl: '#',
-    googlePlayUrl: '#'
-}
+  heading: 'Join Thousands of Event Planners Booking with Confidence',
+  subheading:
+    'From weddings to corporate events, Artistly connects you with top-tier performers. Discover the easiest way to book singers, DJs, dancers, and speakers — all in one place!',
+  appStoreUrl: '#',
+  googlePlayUrl: '#'
+};

@@ -4,96 +4,99 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
-import { FaFingerprint } from 'react-icons/fa';
-
-import Container from './Container';
-import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
+import { FaMicrophoneAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Header: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-    return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
-            <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <FaFingerprint className="text-foreground min-w-fit w-7 h-7" />
-                        <span className="manrope text-xl font-semibold text-foreground cursor-pointer">
-                            {siteDetails.siteName}
-                        </span>
-                    </Link>
+  const menuItems = [
+    { text: 'Home', url: '/' },
+    { text: 'Artists', url: '/artists' },
+    { text: 'Onboard', url: '/onboarding' },
+    { text: 'Dashboard', url: '/dashboard' },
+  ];
 
-                    {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
-                                    {item.text}
-                                </Link>
-                            </li>
-                        ))}
-                        <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors">
-                                Download
-                            </Link>
-                        </li>
-                    </ul>
+  return (
+    <header className="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+        <FaMicrophoneAlt className="text-indigo-600 w-6 h-6" />
+          <span className="text-xl font-semibold text-indigo-700">Artistly</span>
+        </Link>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={toggleMenu}
-                            type="button"
-                            className="bg-primary text-black focus:outline-none rounded-full w-10 h-10 flex items-center justify-center"
-                            aria-controls="mobile-menu"
-                            aria-expanded={isOpen}
-                        >
-                            {isOpen ? (
-                                <HiOutlineXMark className="h-6 w-6" aria-hidden="true" />
-                            ) : (
-                                <HiBars3 className="h-6 w-6" aria-hidden="true" />
-                            )}
-                            <span className="sr-only">Toggle navigation</span>
-                        </button>
-                    </div>
-                </nav>
-            </Container>
-
-            {/* Mobile Menu with Transition */}
-            <Transition
-                show={isOpen}
-                enter="transition ease-out duration-200 transform"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="transition ease-in duration-75 transform"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex items-center space-x-6">
+          {menuItems.map(item => (
+            <li key={item.text}>
+              <Link
+                href={item.url}
+                className="text-gray-700 hover:text-indigo-600 transition-colors font-medium"
+              >
+                {item.text}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link
+              href="/onboarding"
+              className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors text-sm"
             >
-                <div id="mobile-menu" className="md:hidden bg-white shadow-lg">
-                    <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-primary block" onClick={toggleMenu}>
-                                    {item.text}
-                                </Link>
-                            </li>
-                        ))}
-                        <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
-                                Get Started
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </Transition>
-        </header>
-    );
+              Book Now
+            </Link>
+          </li>
+        </ul>
+
+        {/* Mobile Nav Toggle */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden bg-indigo-600 text-white p-2 rounded-full"
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? <HiOutlineXMark size={20} /> : <HiBars3 size={20} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      <Transition
+        show={isOpen}
+        enter="transition duration-200 ease-out"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="transition duration-150 ease-in"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
+      >
+        <div className="md:hidden bg-white px-6 pb-6">
+          <ul className="space-y-4 pt-4">
+            {menuItems.map(item => (
+              <li key={item.text}>
+                <Link
+                  href={item.url}
+                  className="block text-gray-700 hover:text-indigo-600 font-medium"
+                  onClick={toggleMenu}
+                >
+                  {item.text}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/onboarding"
+                className="block text-center bg-indigo-600 text-white py-2 rounded-full hover:bg-indigo-700"
+                onClick={toggleMenu}
+              >
+                Book Now
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </Transition>
+    </header>
+  );
 };
 
 export default Header;

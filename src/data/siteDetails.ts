@@ -1,9 +1,9 @@
 export const siteDetails = {
-    siteName: 'Finwise',
-    siteUrl: 'https://finwise-omega.vercel.app/',
+    siteName: 'Artistly',
+    siteUrl: '#',
     metadata: {
-        title: 'Finwise - Next.js and Tailwind CSS Landing Page Template',
-        description: 'Finwise empowers businesses with cutting-edge technology solutions to drive success and efficiency.',
+        title: 'Artistly-Book your dose of Entertainment',
+        description: 'Artistly connects event planners with talented performers through a seamless, tech-driven platform, making artist booking effortless, efficient, and inspiring.',
     },
     language: 'en-us',
     locale: 'en-US',

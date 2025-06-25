@@ -1,22 +1,25 @@
-import { BsBarChartFill, BsFillStarFill } from "react-icons/bs";
-import { PiGlobeFill } from "react-icons/pi";
+import { BsFillStarFill, BsCalendar2Check, BsFillCalendar2CheckFill } from "react-icons/bs";
+import { PiUsersThreeFill } from "react-icons/pi";
+import { MdLibraryMusic } from "react-icons/md";
 
 import { IStats } from "@/types";
 
 export const stats: IStats[] = [
     {
-        title: "20M+",
-        icon: <BsBarChartFill size={34} className="text-blue-500" />,
-        description: "Transactions processed securely every day, providing real-time insights."
+        title: "10K+",
+    icon: <PiUsersThreeFill size={34} className="text-purple-600" />,
+    description: "Happy event organizers who've booked through our platform."
+
     },
     {
-        title: "5.0",
-        icon: <BsFillStarFill size={34} className="text-yellow-500" />,
-        description: "Star rating, consistently maintained across app stores."
+        title: "4.9",
+    icon: <BsFillStarFill size={34} className="text-yellow-500" />,
+    description: "Average artist rating based on thousands of client reviews."
+
     },
-    {
-        title: "200+ ",
-        icon: <PiGlobeFill size={34} className="text-green-600" />,
-        description: "Financial Institutions, seamlessly integrated, so you can manage all accounts."
-    }
+     {
+    title: "8K+",
+    icon: <BsFillCalendar2CheckFill size={34} className="text-blue-500" />,
+    description: "Successful bookings completed across weddings, corporate events, and festivals."
+  }
 ];

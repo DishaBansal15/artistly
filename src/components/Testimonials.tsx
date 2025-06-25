@@ -8,7 +8,7 @@ const Testimonials: React.FC = () => {
             {testimonials.map((testimonial, index) => (
                 <div
                     key={index}
-                    className=""
+                    className="bg-white p-5 rounded-xl transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                     <div className="flex items-center mb-4 w-full justify-center lg:justify-start">
                         <Image
@@ -23,7 +23,9 @@ const Testimonials: React.FC = () => {
                             <p className="text-sm text-foreground-accent">{testimonial.role}</p>
                         </div>
                     </div>
-                    <p className="text-foreground-accent text-center lg:text-left">&quot;{testimonial.message}&quot;</p>
+                    <p className="text-foreground-accent text-center lg:text-left">
+                        &quot;{testimonial.message}&quot;
+                    </p>
                 </div>
             ))}
         </div>
