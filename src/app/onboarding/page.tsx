@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Header from '@/components/Header';
-import { Range as ReactRange, getTrackBackground } from "react-range";
-import FeeRangeSlider from "@/components/FeeRangeSlider";
+import Image from "next/image";
 
 const FormSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -81,7 +80,7 @@ export default function OnboardingPage() {
           />
           {watch("image")?.[0] && (
             <div className="mt-3">
-              <img
+              <Image
                 src={URL.createObjectURL(watch("image")[0])}
                 alt="Preview"
                 className="w-32 h-32 object-cover rounded-md border shadow"
@@ -185,27 +184,30 @@ export default function OnboardingPage() {
       <span>₹{watch("maxFee") || 30000}</span>
     </div>
 
-    {/* Range sliders */}
+    {/* Min and Max input fields */}
     <div className="flex gap-4 items-center">
       <input
-        type="range"
+        type="number"
         min={5000}
         max={30000}
         step={1000}
+        placeholder="Min ₹"
         {...register("minFee")}
-        className="w-full h-1 appearance-none bg-purple-200 rounded-full outline-none accent-purple-600"
+        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
       />
       <input
-        type="range"
+        type="number"
         min={5000}
         max={30000}
         step={1000}
+        placeholder="Max ₹"
         {...register("maxFee")}
-        className="w-full h-1 appearance-none bg-purple-200 rounded-full outline-none accent-purple-600"
+        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
       />
     </div>
   </div>
 </div>
+
 
 
         {/* Location */}

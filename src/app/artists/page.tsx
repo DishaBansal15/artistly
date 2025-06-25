@@ -6,7 +6,6 @@ import artistData from "@/data/artists.json";
 import Header from '@/components/Header';
 
 const uniqueCategories = [...new Set(artistData.map((a) => a.category))];
-const uniqueLocations = [...new Set(artistData.map((a) => a.location))];
 
 export default function ArtistsPage() {
   const [selectedCategory, setSelectedCategory] = useState("");

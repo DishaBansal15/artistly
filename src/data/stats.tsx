@@ -1,7 +1,5 @@
-import { BsFillStarFill, BsCalendar2Check, BsFillCalendar2CheckFill } from "react-icons/bs";
+import { BsFillStarFill,BsFillCalendar2CheckFill } from "react-icons/bs";
 import { PiUsersThreeFill } from "react-icons/pi";
-import { MdLibraryMusic } from "react-icons/md";
-
 import { IStats } from "@/types";
 
 export const stats: IStats[] = [

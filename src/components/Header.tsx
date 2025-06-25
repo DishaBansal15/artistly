@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import { FaMicrophoneAlt } from 'react-icons/fa';
-import Image from 'next/image';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
